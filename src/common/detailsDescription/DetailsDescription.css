@@ -1,0 +1,6 @@
+.detailsDescriptionContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    flex-direction: column;
+}

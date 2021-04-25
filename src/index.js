@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'typeface-roboto';
+import 'fontsource-roboto';
 import registerServiceWorker from './registerServiceWorker';
 import Controller from './screens/Controller';
 
