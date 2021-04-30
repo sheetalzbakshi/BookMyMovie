@@ -1,18 +1,17 @@
 import React from "react";
-import Header from "../../common/header/Header";
 import "./Details.css";
 import DetailsImage from "../../common/detailsImage/DetailsImage";
 import DetailsDescription from "../../common/detailsDescription/DetailsDescription";
+import DetailsRating from "../../common/detailsRating/DetailsRating";
 
 const DetailsPage = ({ history }) => {
     const onBackClicked = () => {
-      history.push("/")      
-    }; 
+        history.push("/");
+    };
     const movie = history.location.state;
 
     return (
         <React.Fragment>
-            <Header />
             <div className="backButton">
                 <span className="backButtonText" onClick={onBackClicked}>
                     &lt; Back to Home
@@ -28,7 +27,9 @@ const DetailsPage = ({ history }) => {
                 <div className="detailsContentCenter">
                     <DetailsDescription movie={movie} />
                 </div>
-                <div className="detailsContentRight">HHH</div>
+                <div className="detailsContentRight">
+                    <DetailsRating movie={movie} />
+                </div>
             </div>
         </React.Fragment>
     );

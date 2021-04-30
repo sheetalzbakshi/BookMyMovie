@@ -15,11 +15,13 @@
 }
 .detailsContentLeft{
     flex-grow: 2;   
+    flex-basis: 20%
 }
 .detailsContentCenter{
     flex-grow: 6;        
+    flex-basis: 60%
 }
 .detailsContentRight{
     flex-grow: 2;    
-    background-color: red;
+    flex-basis: 20%
 }

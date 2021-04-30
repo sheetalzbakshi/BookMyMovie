@@ -45,21 +45,24 @@ const MenuProps = {
   },
 };
 
-const FilterCard = ({ genres, artists }) => {
+const FilterCard = ({ genres, artists, filterCallback }) => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     movieName: "",
     genre: [],
     artist: [],
-    weightRange: "",
-    showPassword: false,
+    from: "",
+    to: "",
   });
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
-
+  const handleSubmit = ()=>{   
+    if(filterCallback !== undefined) 
+    filterCallback(values);
+  }
 
   return (
     <div  className="fCard">
@@ -74,7 +77,7 @@ const FilterCard = ({ genres, artists }) => {
             <InputLabel htmlFor="movieName">Movie Name</InputLabel>
             <Input
               id="movieName"
-              value=""
+              value={values.movieName}
               onChange={handleChange("movieName")}
             />
           </FormControl>
@@ -147,7 +150,7 @@ const FilterCard = ({ genres, artists }) => {
               format="DD-MM-YYYY"
             />
           </FormControl>
-          <Button variant="contained" color="primary" disableElevation className={clsx(classes.withMargin, classes.button)}>
+          <Button variant="contained" color="primary" disableElevation className={clsx(classes.withMargin, classes.button)} onClick={handleSubmit}>
                APPLY
         </Button>
         </CardContent>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../common/header/Header";
 import Typography from "@material-ui/core/Typography";
 import "./BookShow.css";
 import Card from "@material-ui/core/Card";
@@ -12,6 +11,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { Link } from "react-router-dom";
+import {useConfig} from "../../config";
+
 
 const BookShow = (props) => {
   const [location, setLocation] = useState("");
@@ -33,10 +34,16 @@ const BookShow = (props) => {
   const [originalShows, setOriginalShows] = useState([]);
   const [showId, setShowId] = useState("");
 
+  const config = useConfig();
+
+  console.log(props.match);
+
+  console.log(props.history.location);
+
   useEffect(() => {
     let dataShows = null;
 
-    fetch(props.baseUrl + "movies/" + props.match.params.id + "/shows", {
+    fetch(config.baseUrl + "/movies/" + props.history.location.state.id + "/shows", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -193,7 +200,6 @@ const BookShow = (props) => {
 
   return (
     <div>
-      <Header baseUrl={props.baseUrl} />
       <div className="bookShow">
         <Typography className="back">
           <Link to={"/movie/" + props.match.params.id}>

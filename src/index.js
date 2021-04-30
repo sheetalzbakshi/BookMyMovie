@@ -6,5 +6,5 @@ import 'fontsource-roboto';
 import registerServiceWorker from './registerServiceWorker';
 import Controller from './screens/Controller';
 
-ReactDOM.render(<Controller />, document.getElementById('root'));
+ReactDOM.render(<Controller /> , document.getElementById('root'));
 registerServiceWorker();
